@@ -9,3 +9,6 @@ converted here in png for the readme.
 ![image](mandel.png)
 
 licensing is whatever, MIT ?
+
+compile with GNU Cobol : 
+```cobc -free -x main.cob -o main```

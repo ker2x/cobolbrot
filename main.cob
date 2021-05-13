@@ -33,18 +33,18 @@ DISPLAY sizeX " " sizeY.
 DISPLAY "# Max iter : " MaxIter.
 DISPLAY MaxIter.
 
-PERFORM VARYING screenX from 0 by 1 until screenX is equal to sizeX
-    PERFORM VARYING screenY from 0 by 1 until screenY is equal to sizeY
+PERFORM VARYING screenX FROM 0 BY 1 UNTIL screenX IS EQUAL TO sizeX
+    PERFORM VARYING screenY FROM 0 BY 1 UNTIL screenY IS EQUAL TO sizeY
         MOVE ZERO TO pX
         MOVE ZERO TO pY
         COMPUTE screenR = Rmin + (((Rmax - Rmin) / (sizeX - 1)) * screenX)
         COMPUTE screenI = Imin + (((Imax - Imin) / (sizeY - 1)) * screenY)
 *>        DISPLAY screenX " " screenY " : " screenI " " screenR
 
-        PERFORM WITH test AFTER varying iter from 0 by 1 until iter >= maxIter OR pX**2 + pY**2 >= OrbitEscape
+        PERFORM WITH test AFTER VARYING iter FROM 0 BY 1 UNTIL iter >= maxIter OR pX**2 + pY**2 >= OrbitEscape
             COMPUTE tmp = pX**2 - pY**2 + screenR
             COMPUTE pY = 2.0 * pX * pY + screenI
-            MOVE tmp to pX
+            MOVE tmp TO pX
         END-PERFORM
 
         IF iter >= maxIter
