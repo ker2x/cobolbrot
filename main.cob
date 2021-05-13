@@ -4,25 +4,25 @@ AUTHOR. Ker2x.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 MaxIter CONSTANT 100.
-01 sizeX CONSTANT 512.
-01 sizeY CONSTANT 512.
+01 MaxIter CONSTANT 50.
+01 sizeX CONSTANT 1024.
+01 sizeY CONSTANT 1024.
 01 Rmin CONSTANT -2.0.
 01 Rmax CONSTANT 1.0.
 01 Imin CONSTANT -1.3.
 01 Imax CONSTANT 1.3.
-01 OrbitEscape CONSTANT 4.0.
+01 OrbitEscape CONSTANT 16.0.
 
-01 screenX PIC 999 value zero.
-01 screenY PIC 999 value zero.
-01 screenR PIC S99V9(16) value zero.
-01 screenI PIC S99V9(16) value zero.
-01 iter PIC 9999 value zero.
+01 screenX PIC 9999 value zero.
+01 screenY PIC 9999 value zero.
+01 iter PIC 99999 value zero.
 
+01 screenR PIC S999V9(16) value zero.
+01 screenI PIC S999V9(16) value zero.
 
 01 pX PIC S9(4)V9(16) value zero.
 01 pY PIC S9(4)V9(16) value zero.
-01 tmp PIC S99V9(16) value zero.
+01 tmp PIC S9(4)V9(16) value zero.
 
 
 PROCEDURE DIVISION.
@@ -48,7 +48,7 @@ PERFORM VARYING screenX FROM 0 BY 1 UNTIL screenX IS EQUAL TO sizeX
         END-PERFORM
 
         IF iter >= maxIter
-            DISPLAY maxIter " " WITH NO ADVANCING
+            DISPLAY 0 " " WITH NO ADVANCING
         ELSE
             DISPLAY iter " " WITH NO ADVANCING
         END-IF
